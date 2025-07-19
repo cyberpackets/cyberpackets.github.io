@@ -11,12 +11,11 @@
       --bg-color: #ffffff;
       --text-color: #000000;
       --accent-color: #00ffea;
-      --bg-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      --bg-image: none;
     }
     [data-theme="dark"] {
       --bg-color: #0d1117;
       --text-color: #ffffff;
-      --bg-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
     }
     * {
       box-sizing: border-box;
@@ -26,9 +25,14 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      background-image: var(--bg-image);
-      background-repeat: repeat;
+      background: linear-gradient(135deg, #0f0f0f 25%, #1a1a1a 25%, #1a1a1a 50%, #0f0f0f 50%, #0f0f0f 75%, #1a1a1a 75%, #1a1a1a 100%);
+      background-size: 40px 40px;
+      animation: glitchBackground 1.5s steps(2, end) infinite;
       transition: background-color 0.3s, color 0.3s;
+    }
+    @keyframes glitchBackground {
+      0%, 100% { background-position: 0 0; }
+      50% { background-position: 20px 20px; }
     }
     header {
       text-align: center;
@@ -139,6 +143,11 @@
       .section { padding: 1rem; }
     }
   </style>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </head>
 <body>
   <button class="btn-toggle" onclick="toggleTheme()">
@@ -203,14 +212,6 @@
         ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
         : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
     }
-  </script>
-  <!-- Google Analytics Example (you need to replace with your own GA ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
   </script>
 </body>
 </html>
