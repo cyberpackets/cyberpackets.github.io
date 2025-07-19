@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="https://github.com/cyberpackets/cyberpackets.github.io/blob/main/favicon.ico" />
   <title>Cyber Packets</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -46,11 +46,10 @@
       animation: glitch 1s infinite;
     }
     @keyframes glitch {
-      0% { text-shadow: 2px 2px var(--text-color), -2px -2px var(--accent-color); }
+      0%, 100% { text-shadow: 2px 2px var(--text-color), -2px -2px var(--accent-color); }
       25% { text-shadow: -2px -2px var(--text-color), 2px 2px var(--accent-color); }
       50% { text-shadow: 2px -2px var(--text-color), -2px 2px var(--accent-color); }
       75% { text-shadow: -2px 2px var(--text-color), 2px -2px var(--accent-color); }
-      100% { text-shadow: 2px 2px var(--text-color), -2px -2px var(--accent-color); }
     }
     .tagline {
       font-size: 1.2rem;
@@ -66,17 +65,15 @@
       position: fixed;
       top: 10px;
       right: 10px;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
+      padding: 0.5rem;
+      background-color: transparent;
       border: none;
-      background-color: var(--accent-color);
-      color: #000;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      cursor: pointer;
+      z-index: 999;
     }
-    .btn-toggle:hover {
-      background-color: #00c8c8;
+    .btn-toggle img {
+      width: 32px;
+      height: 32px;
     }
     a {
       color: var(--accent-color);
@@ -117,6 +114,25 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    .terminal {
+      background-color: rgba(0,0,0,0.85);
+      color: #00ffea;
+      font-family: monospace;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      animation: fadeIn 1.5s ease-in;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .terminal span {
+      display: inline-block;
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
     @media (max-width: 600px) {
       h1 { font-size: 2rem; }
       .tagline { font-size: 1rem; }
@@ -125,7 +141,10 @@
   </style>
 </head>
 <body>
-  <button class="btn-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <button class="btn-toggle" onclick="toggleTheme()">
+    <img id="themeIcon" src="https://img.icons8.com/ios-filled/50/000000/sun--v1.png" alt="Toggle Theme">
+  </button>
+
   <header>
     <img src="https://yt3.googleusercontent.com/ytc/AIdro_lOtZwe-banner" alt="Cyber Packets Banner" width="100%" />
     <h1 class="glitch">Cyber Packets</h1>
@@ -135,6 +154,12 @@
   <section class="section">
     <h2>About</h2>
     <p>Cyber Packets is a tech education YouTube channel focused on helping beginners understand the fundamentals of IT and cybersecurity. We break down complex concepts into simple, digestible content.</p>
+  </section>
+
+  <section class="section terminal">
+    <p>&gt; Initializing Cyber Packets...</p>
+    <p>&gt; Loading tutorials...</p>
+    <p>&gt; System online <span>|</span></p>
   </section>
 
   <section class="section">
@@ -162,15 +187,30 @@
   </footer>
 
   <script>
-    const theme = localStorage.getItem('theme');
-    if (theme) document.body.dataset.theme = theme;
+    const themeIcon = document.getElementById('themeIcon');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.body.dataset.theme = currentTheme;
+    themeIcon.src = currentTheme === 'dark'
+      ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
+      : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
 
     function toggleTheme() {
-      const current = document.body.dataset.theme;
-      const newTheme = current === "dark" ? "light" : "dark";
+      const isDark = document.body.dataset.theme === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
       document.body.dataset.theme = newTheme;
       localStorage.setItem('theme', newTheme);
+      themeIcon.src = newTheme === 'dark'
+        ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
+        : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
     }
+  </script>
+  <!-- Google Analytics Example (you need to replace with your own GA ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
   </script>
 </body>
 </html>
