@@ -11,13 +11,13 @@
       --bg-color: #ffffff;
       --text-color: #1a1a1a;
       --accent-color: #00b6bd;
-      --tagline-color-light: #006a6e;
+      --tagline-color-light: #008a92;
       --glitch-title: #0d0d0d;
     }
     [data-theme="dark"] {
       --bg-color: #0d1117;
       --text-color: #ffffff;
-      --tagline-color-light: #00ffea;
+      --tagline-color-light: #00ffe5;
       --glitch-title: #ffffff;
     }
     * {
@@ -61,10 +61,12 @@
     .tagline {
       font-size: 1.2rem;
       color: var(--tagline-color-light);
-      transition: color 0.3s;
+      animation: pulse 2s infinite;
     }
-    [data-theme="dark"] .tagline {
-      color: var(--tagline-color-light);
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
     .section {
       padding: 2rem;
@@ -136,10 +138,24 @@
       max-width: 90%;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      overflow: hidden;
     }
     .terminal span {
       display: inline-block;
       animation: blink 1s step-start infinite;
+    }
+    .binary-stream {
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      animation: binaryMove 10s linear infinite;
+      margin-top: 1rem;
+      color: #00ffea;
+    }
+    @keyframes binaryMove {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
     }
     @keyframes blink {
       50% { opacity: 0; }
@@ -162,6 +178,7 @@
   </button>
 
   <header>
+    <!-- You can replace this image with your own custom banner. Recommended resolution: 1200x300px -->
     <img src="Web-Banner-Main.png" alt="Cyber Packets Banner" width="100%" />
     <h1 class="glitch">Cyber Packets</h1>
     <p class="tagline">From Zero to Hero, One Packet at a Time</p>
@@ -176,6 +193,9 @@
     <p>&gt; Initializing Cyber Packets...</p>
     <p>&gt; Loading tutorials...</p>
     <p>&gt; System online <span>|</span></p>
+    <div class="binary-stream">
+      01010101 00110100 11001100 10101010 11110000 01100001 01000010 00101100 11101010 11001110 10110101 10011000 10100011
+    </div>
   </section>
 
   <section class="section">
