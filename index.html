@@ -9,13 +9,14 @@
   <style>
     :root {
       --bg-color: #ffffff;
-      --text-color: #000000;
+      --text-color: #1a1a1a;
       --accent-color: #00ffea;
-      --bg-image: none;
+      --glitch-title: #0d0d0d;
     }
     [data-theme="dark"] {
       --bg-color: #0d1117;
       --text-color: #ffffff;
+      --glitch-title: #ffffff;
     }
     * {
       box-sizing: border-box;
@@ -25,14 +26,9 @@
       font-family: 'Roboto', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
-      background: linear-gradient(135deg, #0f0f0f 25%, #1a1a1a 25%, #1a1a1a 50%, #0f0f0f 50%, #0f0f0f 75%, #1a1a1a 75%, #1a1a1a 100%);
-      background-size: 40px 40px;
-      animation: glitchBackground 1.5s steps(2, end) infinite;
+      background: radial-gradient(circle at top left, #0d1117 0%, #1a1a1a 100%);
+      background-attachment: fixed;
       transition: background-color 0.3s, color 0.3s;
-    }
-    @keyframes glitchBackground {
-      0%, 100% { background-position: 0 0; }
-      50% { background-position: 20px 20px; }
     }
     header {
       text-align: center;
@@ -43,17 +39,19 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
+      color: var(--glitch-title);
+      text-shadow: 1px 1px var(--accent-color);
     }
     .glitch {
       position: relative;
-      color: var(--accent-color);
-      animation: glitch 1s infinite;
+      animation: glitch 1.5s infinite;
     }
     @keyframes glitch {
-      0%, 100% { text-shadow: 2px 2px var(--text-color), -2px -2px var(--accent-color); }
-      25% { text-shadow: -2px -2px var(--text-color), 2px 2px var(--accent-color); }
-      50% { text-shadow: 2px -2px var(--text-color), -2px 2px var(--accent-color); }
-      75% { text-shadow: -2px 2px var(--text-color), 2px -2px var(--accent-color); }
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
     }
     .tagline {
       font-size: 1.2rem;
