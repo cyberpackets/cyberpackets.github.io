@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="https://github.com/cyberpackets/cyberpackets.github.io/blob/main/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <title>Cyber Packets</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #ffffff;
       --text-color: #1a1a1a;
-      --accent-color: #00ffea;
+      --accent-color: #00b6bd;
+      --tagline-color-light: #006a6e;
       --glitch-title: #0d0d0d;
     }
     [data-theme="dark"] {
       --bg-color: #0d1117;
       --text-color: #ffffff;
+      --tagline-color-light: #00ffea;
       --glitch-title: #ffffff;
     }
     * {
@@ -58,7 +60,11 @@
     }
     .tagline {
       font-size: 1.2rem;
-      color: var(--accent-color);
+      color: var(--tagline-color-light);
+      transition: color 0.3s;
+    }
+    [data-theme="dark"] .tagline {
+      color: var(--tagline-color-light);
     }
     .section {
       padding: 2rem;
