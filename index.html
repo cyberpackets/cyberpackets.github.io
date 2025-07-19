@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyber Packets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --accent-color: #00ffea;
+    }
+    [data-theme="dark"] {
+      --bg-color: #0d1117;
+      --text-color: #ffffff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--accent-color);
+    }
+    .section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .btn-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: var(--accent-color);
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  <header>
+    <img src="https://yt3.googleusercontent.com/ytc/AIdro_lOtZwe-banner" alt="Cyber Packets Banner" width="100%" />
+    <h1>Cyber Packets</h1>
+    <p class="tagline">From Zero to Hero, One Packet at a Time</p>
+  </header>
+
+  <section class="section">
+    <h2>About</h2>
+    <p>Cyber Packets is a tech education YouTube channel focused on helping beginners understand the fundamentals of IT and cybersecurity. We break down complex concepts into simple, digestible content.</p>
+  </section>
+
+  <section class="section">
+    <h2>Watch on YouTube</h2>
+    <p>📺 <a href="https://www.youtube.com/@CyberPackets" target="_blank">Visit our channel</a> for tutorials, quizzes, and tech explainers!</p>
+  </section>
+
+  <section class="section">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:your-email@example.com">cyber.packets@gmail.com</a></p>
+    <p>📘 Facebook: <a href="https://www.facebook.com/yourfacebook" target="_blank">https://www.facebook.com/CyberPackets</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cyber Packets. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.dataset.theme = document.body.dataset.theme === "dark" ? "light" : "dark";
+    }
+  </script>
+</body>
+</html>
