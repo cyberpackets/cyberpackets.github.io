@@ -61,12 +61,11 @@
     .tagline {
       font-size: 1.2rem;
       color: var(--tagline-color-light);
-      animation: pulse 2s infinite;
+      animation: taglineAnim 3s ease-in-out infinite;
     }
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.6; }
-      100% { opacity: 1; }
+    @keyframes taglineAnim {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.03); }
     }
     .section {
       padding: 2rem;
@@ -148,9 +147,9 @@
     .binary-stream {
       white-space: nowrap;
       overflow: hidden;
-      display: block;
+      display: inline-block;
       animation: binaryMove 10s linear infinite;
-      margin-top: 1rem;
+      margin-left: 10px;
       color: #00ffea;
     }
     @keyframes binaryMove {
@@ -178,7 +177,6 @@
   </button>
 
   <header>
-    <!-- You can replace this image with your own custom banner. Recommended resolution: 1200x300px -->
     <img src="Web-Banner-Main.png" alt="Cyber Packets Banner" width="100%" />
     <h1 class="glitch">Cyber Packets</h1>
     <p class="tagline">From Zero to Hero, One Packet at a Time</p>
@@ -189,13 +187,10 @@
     <p>Cyber Packets is a tech education YouTube channel focused on helping beginners understand the fundamentals of IT and cybersecurity. We break down complex concepts into simple, digestible content.</p>
   </section>
 
-  <section class="section terminal">
-    <p>&gt; Initializing Cyber Packets...</p>
-    <p>&gt; Loading tutorials...</p>
-    <p>&gt; System online <span>|</span></p>
-    <div class="binary-stream">
-      01010101 00110100 11001100 10101010 11110000 01100001 01000010 00101100 11101010 11001110 10110101 10011000 10100011
-    </div>
+  <section class="section terminal" id="terminal">
+    <p>&gt; Initializing Cyber Packets... <span class="binary-stream"></span></p>
+    <p>&gt; Loading tutorials... <span class="binary-stream"></span></p>
+    <p>&gt; System online <span>|</span> <span class="binary-stream"></span></p>
   </section>
 
   <section class="section">
@@ -239,6 +234,20 @@
         ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
         : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
     }
+
+    function generateBinaryString(length) {
+      let result = '';
+      for (let i = 0; i < length; i++) {
+        result += Math.random() < 0.5 ? '0' : '1';
+        if ((i + 1) % 8 === 0) result += ' ';
+      }
+      return result.trim();
+    }
+
+    // Fill all binary-stream spans with random data
+    document.querySelectorAll('.binary-stream').forEach(span => {
+      span.textContent = generateBinaryString(96);
+    });
   </script>
 </body>
 </html>
