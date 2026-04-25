@@ -1,253 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <title>Cyber Packets</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #1a1a1a;
-      --accent-color: #00b6bd;
-      --tagline-color-light: #008a92;
-      --glitch-title: #0d0d0d;
-    }
-    [data-theme="dark"] {
-      --bg-color: #0d1117;
-      --text-color: #ffffff;
-      --tagline-color-light: #00ffe5;
-      --glitch-title: #ffffff;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      background: linear-gradient(135deg, var(--bg-color), #e0f7fa);
-      background-attachment: fixed;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    [data-theme="dark"] body {
-      background: radial-gradient(circle at top left, #0d1117 0%, #1a1a1a 100%);
-    }
-    header {
-      text-align: center;
-      padding: 2rem;
-      animation: fadeIn 1s ease-in;
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--glitch-title);
-      text-shadow: 1px 1px var(--accent-color);
-    }
-    .glitch {
-      position: relative;
-      animation: glitch 1.5s infinite;
-    }
-    @keyframes glitch {
-      0%, 100% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
-    }
-    .tagline {
-      font-size: 1.2rem;
-      color: var(--tagline-color-light);
-      animation: taglineAnim 3s ease-in-out infinite;
-    }
-    @keyframes taglineAnim {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.7; transform: scale(1.03); }
-    }
-    .section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      animation: fadeIn 1s ease-in;
-    }
-    .btn-toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 0.5rem;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 999;
-    }
-    .btn-toggle img {
-      width: 32px;
-      height: 32px;
-    }
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: #00c8c8;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
-    form button {
-      background-color: var(--accent-color);
-      color: #000;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #00c8c8;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .terminal {
-      background-color: rgba(0,0,0,0.85);
-      color: #00ffea;
-      font-family: monospace;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 1rem;
-      animation: fadeIn 1.5s ease-in;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      overflow: hidden;
-    }
-    .terminal span {
-      display: inline-block;
-      animation: blink 1s step-start infinite;
-    }
-    .binary-stream {
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: binaryMove 10s linear infinite;
-      margin-left: 10px;
-      color: #00ffea;
-    }
-    @keyframes binaryMove {
-      from { transform: translateX(100%); }
-      to { transform: translateX(-100%); }
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .tagline { font-size: 1rem; }
-      .section { padding: 1rem; }
-    }
-  </style>
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8844452500348421" crossorigin="anonymous"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Packets MSSP - Iloilo</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <button class="btn-toggle" onclick="toggleTheme()">
-    <img id="themeIcon" src="https://img.icons8.com/ios-filled/50/000000/sun--v1.png" alt="Toggle Theme">
-  </button>
 
-  <header>
-    <img src="Web-Banner-Main.png" alt="Cyber Packets Banner" width="100%" />
-    <h1 class="glitch">Cyber Packets</h1>
-    <p class="tagline">From Zero to Hero, One Packet at a Time</p>
-  </header>
+  <!-- HERO -->
+  <section id="hero"></section>
 
-  <section class="section">
-    <h2>About</h2>
-    <p>Cyber Packets is a tech education YouTube channel focused on helping beginners understand the fundamentals of IT and cybersecurity. We break down complex concepts into simple, digestible content.</p>
-  </section>
+  <!-- WHO WE HELP -->
+  <section id="who"></section>
 
-  <section class="section terminal" id="terminal">
-    <p>&gt; Initializing Cyber Packets<span>...</span> <span class="binary-stream"></span></p>
-    <p>&gt; Loading tutorials<span>...</span> <span class="binary-stream"></span></p>
-    <p>&gt; System online <span>|</span> <span class="binary-stream"></span></p>
-  </section>
+  <!-- HOW IT WORKS -->
+  <section id="how"></section>
 
-  <section class="section">
-    <h2>Watch on YouTube</h2>
-    <p>📺 <a href="https://www.youtube.com/@CyberPackets" target="_blank">Visit our channel</a> for tutorials, quizzes, and tech explainers!</p>
-  </section>
+  <!-- PLANS -->
+  <section id="plans"></section>
 
-  <section class="section">
-    <h2>Contact</h2>
-    <form action="https://formspree.io/f/xanbqnll" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <!-- CONTACT -->
+  <section id="contact"></section>
 
-  <section class="section">
-    <h2>Tech Quizzes & Blog (Coming Soon)</h2>
-    <p>We’re cooking up interactive tech quizzes, news breakdowns, and useful content to help beginners master networking and cybersecurity. Stay tuned!</p>
-  </section>
+  <script src="script.js"></script>
 
-  <footer>
-    <p>&copy; 2025 Cyber Packets. All rights reserved.</p>
-  </footer>
-
-  <script>
-    const themeIcon = document.getElementById('themeIcon');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.body.dataset.theme = currentTheme;
-    themeIcon.src = currentTheme === 'dark'
-      ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
-      : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
-
-    function toggleTheme() {
-      const isDark = document.body.dataset.theme === 'dark';
-      const newTheme = isDark ? 'light' : 'dark';
-      document.body.dataset.theme = newTheme;
-      localStorage.setItem('theme', newTheme);
-      themeIcon.src = newTheme === 'dark'
-        ? 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png'
-        : 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png';
-    }
-
-    function generateBinaryString(length) {
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += Math.random() < 0.5 ? '0' : '1';
-        if ((i + 1) % 8 === 0) result += ' ';
-      }
-      return result.trim();
-    }
-
-    // Fill all binary-stream spans with random data
-    document.querySelectorAll('.binary-stream').forEach(span => {
-      span.textContent = generateBinaryString(96);
-    });
-  </script>
 </body>
 </html>
